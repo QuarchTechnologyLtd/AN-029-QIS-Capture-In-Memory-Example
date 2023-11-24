@@ -164,7 +164,8 @@ def process_qis_data(csv_data_io):
     # Get the entire contents of the buffer as a string
     csv_data_string = csv_data_io.getvalue()
 
-    print(csv_data_string)
+    # Print all csv data (for debugging)
+    # print(csv_data_string)
 
     # Convert the CSV-like data in StringIO to a pandas DataFrame
     csv_data_io = StringIO(csv_data_string)
