@@ -122,8 +122,8 @@ def simple_stream_example(module):
 
     # Sets for a manual record trigger, so we can start the stream from the script
     print("Set manual Trigger: " + module.sendCommand("record:trigger:mode manual"))
-    # Use 4k averaging (around 1 measurement every 32mS)
-    print("Set averaging: " + module.sendCommand("record:averaging 32k"))
+    # Use 1k averaging (around 1 measurement every 4mS)
+    print("Set averaging: " + module.sendCommand("record:averaging 1"))
 
     # In this example we write to a defined StringIO data structure
     print("\nStarting Recording!")
@@ -163,6 +163,8 @@ def process_qis_data(csv_data_io):
 
     # Get the entire contents of the buffer as a string
     csv_data_string = csv_data_io.getvalue()
+
+    print(csv_data_string)
 
     # Convert the CSV-like data in StringIO to a pandas DataFrame
     csv_data_io = StringIO(csv_data_string)
